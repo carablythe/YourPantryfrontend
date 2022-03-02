@@ -15,7 +15,7 @@ const App = () => {
 
   const getRecipes = () => {
   axios
-    .get('http://localhost:3000/yourpantry')
+    .get('https://yourpantry.herokuapp.com/yourpantry')
     .then((response) => {
       setRecipes(response.data);
   })
@@ -45,7 +45,7 @@ const App = () => {
   const handleNewRecipeFormSubmit = (event) => {
     event.preventDefault();
     axios.post(
-      'http://localhost:3000/yourpantry',
+      'https://yourpantry.herokuapp.com/yourpantry',
       {
         dish: newDish,
         ingredients: newIngredients,
@@ -55,7 +55,7 @@ const App = () => {
       }
     ).then(()=> {
       axios
-        .get('http://localhost:3000/yourpantry')
+        .get('https://yourpantry.herokuapp.com/yourpantry')
         .then((response) => {
           setRecipes(response.data);
       })
@@ -64,10 +64,10 @@ const App = () => {
 
   const handleDelete = (recipeData) => {
     axios
-        .delete(`http://localhost:3000/yourpantry/${recipeData._id}`
+        .delete(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`
         ).then(()=> {
           axios
-            .get('http://localhost:3000/yourpantry')
+            .get('https://yourpantry.herokuapp.com/yourpantry')
             .then((response) => {
               setRecipes(response.data);
           })
@@ -77,7 +77,7 @@ const App = () => {
 
     const handleEdit = (recipeData) => {
       axios
-          .put(`http://localhost:3000/yourpantry/${recipeData._id}`,
+          .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
             {
               dish: newDish,
               ingredients: newIngredients,
@@ -86,7 +86,7 @@ const App = () => {
             }
           ).then(()=> {
             axios
-              .get('http://localhost:3000/yourpantry')
+              .get('https://yourpantry.herokuapp.com/yourpantry')
               .then((response) => {
                 setRecipes(response.data);
             })
