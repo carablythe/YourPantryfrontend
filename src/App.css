@@ -1,25 +1,54 @@
-main {
-  background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+#page {
+  background-image: url(https://static.themarthablog.com/2017/03/DSC_5680.jpg);
+  /* background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  margin: 2vw 2vw; */
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  background-repeat: no-repeat;
+}
+
+#op {
+  background-color: rgb(223, 220, 220);
+  opacity: 0.9;
+  width: 70%;
+  margin: auto;
+  border-radius: 25px;
+  border: 3px solid white;
+}
+/* main {
+  background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-size: contain;
   font-size: 2.5vw;
-  margin: 2vw 2vw;
+} */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 2vw 1vw;
   text-align: center;
 }
 
 h1 {
-  margin: 1vw 1vw;
-  color:	#bb0a1e;
+  font-family: "Dancing Script", cursive;
+  font-size: 7rem;
+  color: white;
+  text-shadow: 3px 3px 5px black;
+}
+
+h4 {
+  color: #f70d1a;
+  /* text-shadow: 0.2vw 0.2vw 0.2vw black; */
 }
 
 h2 {
-  margin: 1vw 1vw;
-  color: 	#013220;
+  color: #006400;
+  margin-top: 3rem;
+  /* text-shadow: 0.1vw 0.1vw 0.1vw black; */
 }
 
 h3 {
-  margin: 1vw 1vw;
-  color: 	#FF6700;
+  color: #ff6700;
+  /* text-shadow: 0.2vw 0.2vw 0.2vw black; */
 }
 
 section {
@@ -27,35 +56,66 @@ section {
 }
 
 form {
-  margin: 1vw 4.5vw;
   font-weight: 500;
+  margin: 2vw 15vw 6vw 15vw;
+  background-image: url("https://media.istockphoto.com/photos/wooden-cutting-board-with-kitchen-knife-picture-id187946246?k=20&m=187946246&s=612x612&w=0&h=Lx8PFFLKVwNPzVQAV0MBTcdHjA99CEA3YYpmZy34jU4=");
+  background-size: 120% 130%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2vw 4vw 1vw 4vw;
+  box-shadow: 1vw 1vw 3vw black;
+  border-radius: 2vw;
 }
 
+.inputRecipeName {
+  width: 35.3vw;
+  height: 2.5vw;
+  font-size: 1.7vw;
+  margin: 0vw 1vw 1vw 0vw;
+  background-color: #cda678;
+}
+
+.inputRecipe {
+  width: 59vw;
+  height: 2.5vw;
+  font-size: 1.7vw;
+  margin: 0vw 1vw 1vw 0vw;
+  background-color: #cda678;
+}
 
 ul {
- list-style: none;
+  list-style: none;
+}
+
+li {
+  background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
+  border-radius: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 2vw 15vw 2vw 10vw;
+  padding: 1vw 8vw 1vw 10vw;
+  box-shadow: 1vw 1vw 2vw black;
 }
 
 .removeButton {
   font-size: 2vw;
   color: white;
   background-color: red;
-  margin: 0vw 25vw 4vw 25vw;
+  margin: 0vw 5vw 2vw 5vw;
   cursor: wait;
-
 }
 
 .editButton {
   font-size: 2vw;
   background-color: orange;
-  margin: 0vw 4vw 0vw 0vw;
+  margin: 1vw 5vw 1vw 5vw;
   cursor: context-menu;
 }
 
 .addRecipe {
-  font-size: 2vw;
-  color: white;
-  background-color: blue;
-  margin: 2vw 0vw 4vw 0vw;
+  font-size: 2.5vw;
+  color: black;
+  background-color: #aaa9ad;
+  margin: 2vw 25vw 5vw 5vw;
   cursor: cell;
 }
