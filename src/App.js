@@ -107,20 +107,20 @@ const App = () => {
         <h2>No need to Shop!</h2>
         <h3>Use what's in your fridge and pantry!</h3>
         <br/>
-        <h4> Search by ingredient(s): <input placeholder="Enter Query" onChange={event => setQuery(event.target.value)} /> </h4>
+        <h4> Search by ingredient(s): <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /> </h4>
         <br/>
         <h2>Got a Recipe to Share? Please Add it Here:</h2>
         <form onSubmit = {handleNewRecipeFormSubmit}>
-        Dish/Recipe Name: <input type ="text" onChange={handleNewDishChange}/><br/>
-        Main Ingredients (separated by commas): <input type ="text" onChange={handleNewIngredientsChange}/><br/>
-        Directions/Preparation Method (optional): <input type ="text" onChange={handleNewDirectionsChange}/><br/>
-        Or instead of directions, add a link(URL) to the recipe: <input type ="text" onChange={handleNewURLChange}/><br/>
-        Add a photo(image URL) of the dish (optional): <input type ="text" onChange={handleNewPictureChange}/><br/>
-        <input type="submit" class ="addRecipe" value="Add to List"/>
+        Dish/Recipe Name: <input type ="text" class= "inputRecipeName" onChange={handleNewDishChange}/><br/>
+        Main Ingredients (separated by commas): <input type ="text" class= "inputRecipe" onChange={handleNewIngredientsChange}/><br/>
+        Directions/Preparation Method (optional): <input type ="text" class= "inputRecipe" onChange={handleNewDirectionsChange}/><br/>
+        Or instead of directions, add a recipe link(URL): <input type ="text" class= "inputRecipe" onChange={handleNewURLChange}/><br/>
+        Add a photo(image URL) of the dish (optional): <input type ="text" class= "inputRecipe" onChange={handleNewPictureChange}/><br/>
+        <input type="submit" class ="addRecipe" value="Add Recipe to Collection"/>
         </form>
       </section>
       <section>
-      <h2>Browse Recipes "Your Pantry" Collection Below:</h2>
+      <h2>Browse "Your Pantry" Recipes Below:</h2>
       <ul>
       {recipes.filter(recipe => {
                 if (query === '') {
@@ -131,9 +131,8 @@ const App = () => {
               }).map((recipe) =>{
           return <li key={recipe._id} class = "recipeInfo">
             <h3>{recipe.dish}</h3>
-            <h4>Ingredients: {recipe.ingredients}</h4>
-            <h4>Directions: {recipe.directions}</h4>
-            <h4>URL:{recipe.recipeURL}</h4>
+            <h5>Ingredients: {recipe.ingredients}</h5>
+            <h5><a href= {recipe.recipeURL} target="_blank" >Directions: {recipe.directions}</a></h5>
             <img src= {recipe.picture}/>
           <h5><em>To edit this recipe's information, enter the new piece of information in the form at the top of the page and then click this button: </em><button class = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button></h5>
           <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>

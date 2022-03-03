@@ -1,25 +1,27 @@
 main {
   background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
   font-size: 2.5vw;
-  margin: 2vw 2vw;
+}
+
+h1, h2, h3, h4 {
+  margin: 2vw 1vw;
   text-align: center;
 }
 
-h1 {
-  margin: 1vw 1vw;
-  color:	#bb0a1e;
+h1, h4  {
+  color:	#F70D1A;
+    text-shadow: .2vw .2vw .2vw black;
 }
 
 h2 {
-  margin: 1vw 1vw;
-  color: 	#013220;
+  color: 	#006400;
+  text-shadow: .1vw .1vw .1vw black;
 }
 
 h3 {
-  margin: 1vw 1vw;
   color: 	#FF6700;
+  text-shadow: .2vw .2vw .2vw black;
 }
 
 section {
@@ -27,20 +29,50 @@ section {
 }
 
 form {
-  margin: 1vw 4.5vw;
   font-weight: 500;
+  margin: 2vw 15vw 6vw 15vw;
+  background-image: url("https://media.istockphoto.com/photos/wooden-cutting-board-with-kitchen-knife-picture-id187946246?k=20&m=187946246&s=612x612&w=0&h=Lx8PFFLKVwNPzVQAV0MBTcdHjA99CEA3YYpmZy34jU4=");
+  background-size: 120% 130%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2vw 4vw 1vw 4vw;
+  box-shadow: 2vw 2vw 2vw black;
+  border-radius: 2vw;
 }
 
+.inputRecipeName {
+  width:35.3vw;
+  height:2.5vw;
+  font-size: 1.7vw;
+  margin: 0vw 1vw 1vw 0vw;
+  background-color: #CDA678;
+}
+
+.inputRecipe {
+  width:59vw;
+  height:2.5vw;
+  font-size: 1.7vw;
+  margin: 0vw 1vw 1vw 0vw;
+  background-color: #CDA678;
+}
 
 ul {
  list-style: none;
+}
+
+li {
+  background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 2vw 15vw 2vw 10vw;
+  padding: 1vw 8vw 1vw 10vw;
 }
 
 .removeButton {
   font-size: 2vw;
   color: white;
   background-color: red;
-  margin: 0vw 25vw 4vw 25vw;
+  margin: 0vw 5vw 2vw 5vw;
   cursor: wait;
 
 }
@@ -48,14 +80,14 @@ ul {
 .editButton {
   font-size: 2vw;
   background-color: orange;
-  margin: 0vw 4vw 0vw 0vw;
+  margin: 1vw 5vw 1vw 5vw;
   cursor: context-menu;
 }
 
 .addRecipe {
-  font-size: 2vw;
-  color: white;
-  background-color: blue;
-  margin: 2vw 0vw 4vw 0vw;
+  font-size: 2.5vw;
+  color: black;
+  background-color: #aaa9ad;
+  margin: 4vw 38vw 4vw 5vw;
   cursor: cell;
 }
