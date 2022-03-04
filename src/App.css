@@ -2,8 +2,8 @@
   background-image: url(https://static.themarthablog.com/2017/03/DSC_5680.jpg);
   /* background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   margin: 2vw 2vw; */
-  /* background-repeat: no-repeat; */
-  background-size: cover;
+  background-repeat: repeat;
+  /* background-size: cover; */
 }
 
 #op {
@@ -20,6 +20,10 @@
   font-size: 2.5vw;
 } */
 
+span {
+  font-size: 2rem;
+  color: red;
+}
 h1,
 h2,
 h3,
@@ -30,24 +34,29 @@ h4 {
 
 h1 {
   font-family: "Dancing Script", cursive;
-  font-size: 7rem;
+  font-size: 8rem;
   color: white;
   text-shadow: 3px 3px 5px black;
+
+  animation-name: bigger;
+  animation-duration: 3s;
 }
 
 h4 {
-  color: #f70d1a;
+  color: black;
   /* text-shadow: 0.2vw 0.2vw 0.2vw black; */
 }
 
 h2 {
   color: #006400;
   margin-top: 3rem;
+  font-size: 2rem;
   /* text-shadow: 0.1vw 0.1vw 0.1vw black; */
 }
 
 h3 {
   color: #ff6700;
+  font-size: 2rem;
   /* text-shadow: 0.2vw 0.2vw 0.2vw black; */
 }
 
@@ -118,4 +127,15 @@ li {
   background-color: #aaa9ad;
   margin: 2vw 25vw 5vw 5vw;
   cursor: cell;
+}
+
+@keyframes bigger {
+  0% {
+    opacity: 0;
+    font-size: 2rem;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

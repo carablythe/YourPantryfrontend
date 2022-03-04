@@ -101,7 +101,7 @@ const App = () => {
             <br />
             <h4>
               {" "}
-              Search by ingredient(s):{" "}
+              <span>Search</span> by main ingredient(s):{" "}
               <input
                 placeholder="Enter Query"
                 onChange={(event) => setQuery(event.target.value)}
