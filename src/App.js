@@ -117,11 +117,11 @@ const App = () => {
         <br/>
         <h2>Got a Recipe to Share?</h2>
         <form className= "addRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
-        Dish/Recipe Name: <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange}/><br/>
-        Main Ingredients (separated by commas): <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange}/><br/>
-        Directions/Preparation Method (optional): <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange}/><br/>
-        Or instead of directions, add a recipe link(URL): <input type ="text" className= "inputRecipe" onChange={handleNewURLChange}/><br/>
-        Add a photo(image URL) of the dish (optional): <input type ="text" className= "inputRecipe" onChange={handleNewPictureChange}/><br/>
+        Dish/Recipe Name: <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange} value={newDish} /><br/>
+        Main Ingredients (separated by commas): <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange} value={newIngredients} /><br/>
+        Directions/Preparation Method (optional): <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange} value={newDirections} /><br/>
+        Or instead of directions, add a recipe link(URL): <input type ="text" className= "inputRecipe" onChange={handleNewURLChange} value={newURL} /><br/>
+        Add a photo(image URL) of the dish (optional): <input type ="text" className= "inputRecipe" onChange={handleNewPictureChange} value={newPicture} /><br/>
         <input type="submit" className ="addRecipe" value="Add Recipe to Collection"/>
         </form>
       </section>
@@ -138,15 +138,15 @@ const App = () => {
           return <li key={recipe._id} className = "recipeInfo">
             <h3>{recipe.dish}</h3>
             <h5>Ingredients: {recipe.ingredients}</h5>
-            <h5><a href= {recipe.recipeURL} target="_blank" >Directions: {recipe.directions}</a></h5>
+            <h5><a href= {recipe.recipeURL} target="_blank" >Directions: (click for recipe if no directions appear) {recipe.directions}</a></h5>
             <img src= {recipe.picture}/>
           <h5><em>You can edit this recipe below: </em></h5>
           <form className= "editRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
-            Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange}/><br/>
-            Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput" onChange={handleNewIngredientsChange}/><br/>
-            Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange}/><br/>
-            Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange}/><br/>
-            Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange}/><br/>
+            Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange} /><br/>
+            Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput"  onChange={handleNewIngredientsChange}/><br/>
+            Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange} /><br/>
+            Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange} /><br/>
+            Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange} /><br/>
             </form>
             <button className = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button>
           <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>
