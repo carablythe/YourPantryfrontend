@@ -57,13 +57,17 @@ const App = () => {
         directions: newDirections,
         recipeURL: newURL,
         picture: newPicture
-
       }
     ).then(()=> {
       axios
         .get('https://yourpantry.herokuapp.com/yourpantry')
         .then((response) => {
           setRecipes(response.data);
+          setNewDish("");
+          setNewIngredients("");
+          setNewDirections("");
+          setNewURL("");
+          setNewPicture("");
       })
     })
   }
@@ -101,47 +105,59 @@ const App = () => {
       }
 
   return (
-    <main>
+   <div className="page">
+    <div className="op">
+     <main>
       <h1>Your Pantry</h1>
       <section>
         <h2>No need to Shop!</h2>
         <h3>Use what's in your fridge and pantry!</h3>
         <br/>
-        <h4> Search by ingredient(s): <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /> </h4>
+        <h4> Search by main ingredient: <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /></h4>
         <br/>
-        <h2>Got a Recipe to Share? Please Add it Here:</h2>
-        <form onSubmit = {handleNewRecipeFormSubmit}>
-        Dish/Recipe Name: <input type ="text" class= "inputRecipeName" onChange={handleNewDishChange}/><br/>
-        Main Ingredients (separated by commas): <input type ="text" class= "inputRecipe" onChange={handleNewIngredientsChange}/><br/>
-        Directions/Preparation Method (optional): <input type ="text" class= "inputRecipe" onChange={handleNewDirectionsChange}/><br/>
-        Or instead of directions, add a recipe link(URL): <input type ="text" class= "inputRecipe" onChange={handleNewURLChange}/><br/>
-        Add a photo(image URL) of the dish (optional): <input type ="text" class= "inputRecipe" onChange={handleNewPictureChange}/><br/>
-        <input type="submit" class ="addRecipe" value="Add Recipe to Collection"/>
+        <h2>Got a Recipe to Share?</h2>
+        <form className= "addRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
+        Dish/Recipe Name: <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange}/><br/>
+        Main Ingredients (separated by commas): <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange}/><br/>
+        Directions/Preparation Method (optional): <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange}/><br/>
+        Or instead of directions, add a recipe link(URL): <input type ="text" className= "inputRecipe" onChange={handleNewURLChange}/><br/>
+        Add a photo(image URL) of the dish (optional): <input type ="text" className= "inputRecipe" onChange={handleNewPictureChange}/><br/>
+        <input type="submit" className ="addRecipe" value="Add Recipe to Collection"/>
         </form>
       </section>
       <section>
-      <h2>Browse "Your Pantry" Recipes Below:</h2>
+      <h2>Browse Recipes Below:</h2>
       <ul>
-      {recipes.filter(recipe => {
-                if (query === '') {
-                  return recipe;
-                } else if (recipe.ingredients.toLowerCase().includes(query.toLowerCase())) {
-                  return recipe;
-                }
-              }).map((recipe) =>{
-          return <li key={recipe._id} class = "recipeInfo">
+      {recipes.filter((recipe) => {
+          if (recipe.ingredients.includes(query)) {
+          return recipe;
+          } else if (recipe.ingredients.toLowerCase().includes(query.toLowerCase())) {
+          return recipe;
+          }
+          }).map((recipe) =>{
+          return <li key={recipe._id} className = "recipeInfo">
             <h3>{recipe.dish}</h3>
             <h5>Ingredients: {recipe.ingredients}</h5>
             <h5><a href= {recipe.recipeURL} target="_blank" >Directions: {recipe.directions}</a></h5>
             <img src= {recipe.picture}/>
-          <h5><em>To edit this recipe's information, enter the new piece of information in the form at the top of the page and then click this button: </em><button class = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button></h5>
+          <h5><em>You can edit this recipe below: </em></h5>
+          <form className= "editRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
+            Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange}/><br/>
+            Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput" onChange={handleNewIngredientsChange}/><br/>
+            Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange}/><br/>
+            Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange}/><br/>
+            Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange}/><br/>
+            </form>
+            <button className = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button>
           <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>
           </li>
         })
-      }
+       }
       </ul>
-      </section>
+     </section>
     </main>
+    </div>
+   </div>
   );
 }
 
