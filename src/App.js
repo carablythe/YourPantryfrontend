@@ -117,9 +117,9 @@ const App = () => {
               Directions:{" "}
               <input type="text" onChange={handleNewDirectionsChange} />
               <br />
-              {/* Add a photo of the dish (URL):{" "}
+              Add a photo of the dish (URL):{" "}
               <input type="text" onChange={handleNewPictureChange} />
-              <br /> */}
+              <br />
               <input type="submit" class="addRecipe" value="Add to List" />
             </form>
           </section>
