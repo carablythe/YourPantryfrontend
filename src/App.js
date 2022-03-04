@@ -84,7 +84,6 @@ const App = () => {
         })
     }
 
-
     const handleEdit = (recipeData) => {
       axios
           .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
@@ -136,20 +135,22 @@ const App = () => {
           }
           }).map((recipe) =>{
           return <li key={recipe._id} className = "recipeInfo">
-            <h3>{recipe.dish}</h3>
-            <h5>Ingredients: {recipe.ingredients}</h5>
-            <h5><a href= {recipe.recipeURL} target="_blank" >Directions: (click for recipe if no directions appear) {recipe.directions}</a></h5>
-            <img src= {recipe.picture}/>
-          <h5><em>You can edit this recipe below: </em></h5>
-          <form className= "editRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
-            Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange} /><br/>
-            Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput"  onChange={handleNewIngredientsChange}/><br/>
-            Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange} /><br/>
-            Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange} /><br/>
-            Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange} /><br/>
-            </form>
-            <button className = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button>
-          <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>
+            <object class= "dishName"><h3>{recipe.dish}</h3></object>
+            <div id ="hidden">
+              <h5>Ingredients: {recipe.ingredients}</h5>
+              <h5><a href= {recipe.recipeURL} target="_blank" >Directions: (click for recipe if no directions appear) {recipe.directions}</a></h5>
+              <img src= {recipe.picture}/>
+              <h5><em>You can edit this recipe below: </em></h5>
+              <form className= "editRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
+              Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange} /><br/>
+              Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput"  onChange={handleNewIngredientsChange}/><br/>
+              Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange} /><br/>
+              Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange} /><br/>
+              Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange} /><br/>
+              </form>
+              <button className = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button>
+              <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>
+            </div>
           </li>
         })
        }

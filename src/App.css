@@ -73,7 +73,7 @@ h4  {
 }
 
 .inputRecipeName {
-  width:36.5vw;
+  width:35.5vw;
   height:2.5vw;
   font-size: 1.7vw;
   margin: 0vw 1vw 1vw 0vw;
@@ -81,7 +81,7 @@ h4  {
 }
 
 .inputRecipe {
-  width:54vw;
+  width:53vw;
   height:2.5vw;
   font-size: 1.7vw;
   margin: 0vw 1vw 1vw 0vw;
@@ -141,6 +141,10 @@ li {
   background-color: #aaa9ad;
   margin: 4vw 10vw 4vw 5vw;
   cursor: cell;
+}
+
+.dishName {
+  object-position: center;
 }
 
 a {
