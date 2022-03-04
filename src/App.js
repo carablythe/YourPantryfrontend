@@ -113,7 +113,7 @@ const App = () => {
         <h2>No need to Shop!</h2>
         <h3>Use what's in your fridge and pantry!</h3>
         <br/>
-        <h4> Search by main ingredient: <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /></h4>
+        <h4>Search by main ingredient: <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /></h4>
         <br/>
         <h2>Got a Recipe to Share?</h2>
         <form className= "addRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>

@@ -23,7 +23,7 @@ h1 {
 }
 
 h2, h3, h4 {
-  margin: 1vw 1vw 2vw 1vw;
+  margin: 1vw 1vw 1vw 1vw;
   text-align: center;
 }
 
@@ -101,7 +101,11 @@ h4  {
   background-color: #FFFFFF;
 }
 
-ul, a {
+input:focus {
+  outline: none;
+}
+
+ul {
  list-style: none;
 }
 
@@ -109,8 +113,10 @@ li {
   background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin: 3vw 7vw 2vw 5vw;
+  margin: 3vw 7vw 2vw 3vw;
   padding: 2vw 7vw 1vw 9vw;
+  border-radius: 2vw;
+  box-shadow: 1vw 1vw 2vw black
 }
 
 .removeButton {
@@ -135,6 +141,10 @@ li {
   background-color: #aaa9ad;
   margin: 4vw 10vw 4vw 5vw;
   cursor: cell;
+}
+
+a {
+  text-decoration: none;
 }
 
 @keyframes bigger {
