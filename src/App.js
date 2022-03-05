@@ -84,24 +84,80 @@ const App = () => {
         })
     }
 
-    const handleEdit = (recipeData) => {
-      axios
-          .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
-            {
-              dish: newDish,
-              ingredients: newIngredients,
-              directions: newDirections,
-              recipeURL: newURL,
-              picture: newPicture
-            }
-          ).then(()=> {
-            axios
-              .get('https://yourpantry.herokuapp.com/yourpantry')
-              .then((response) => {
-                setRecipes(response.data);
+      const handleEditDish = (recipeData) => {
+        axios
+            .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+              {
+                dish: newDish
+              }
+            ).then(()=> {
+              axios
+                .get('https://yourpantry.herokuapp.com/yourpantry')
+                .then((response) => {
+                  setRecipes(response.data);
+              })
             })
-          })
-      }
+        }
+
+        const handleEditIngredients = (recipeData) => {
+          axios
+              .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                {
+                  ingredients: newIngredients
+                }
+              ).then(()=> {
+                axios
+                  .get('https://yourpantry.herokuapp.com/yourpantry')
+                  .then((response) => {
+                    setRecipes(response.data);
+                })
+              })
+          }
+
+          const handleEditDirections = (recipeData) => {
+            axios
+                .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                  {
+                    directions: newDirections
+                  }
+                ).then(()=> {
+                  axios
+                    .get('https://yourpantry.herokuapp.com/yourpantry')
+                    .then((response) => {
+                      setRecipes(response.data);
+                  })
+                })
+            }
+
+            const handleEditURL = (recipeData) => {
+              axios
+                  .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                    {
+                      recipeURL: newURL
+                    }
+                  ).then(()=> {
+                    axios
+                      .get('https://yourpantry.herokuapp.com/yourpantry')
+                      .then((response) => {
+                        setRecipes(response.data);
+                    })
+                  })
+              }
+
+              const handleEditPicture = (recipeData) => {
+                axios
+                    .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                      {
+                        picture: newPicture
+                      }
+                    ).then(()=> {
+                      axios
+                        .get('https://yourpantry.herokuapp.com/yourpantry')
+                        .then((response) => {
+                          setRecipes(response.data);
+                      })
+                    })
+                }
 
   return (
    <div className="page">
@@ -133,7 +189,7 @@ const App = () => {
           } else if (recipe.ingredients.toLowerCase().includes(query.toLowerCase())) {
           return recipe;
           }
-          }).map((recipe) =>{
+        }).map((recipe) =>{
           return <li key={recipe._id} className = "recipeInfo">
             <object class= "dishName"><h3>{recipe.dish}</h3></object>
             <div id ="hidden">
@@ -141,15 +197,25 @@ const App = () => {
               <h5><a href= {recipe.recipeURL} target="_blank" >Directions: (click for recipe if no directions appear) {recipe.directions}</a></h5>
               <img src= {recipe.picture}/>
               <h5><em>You can edit this recipe below: </em></h5>
-              <form className= "editRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
-              Dish/Recipe Name: <input type ="text" className= "editRecipeInput" onChange={handleNewDishChange} /><br/>
-              Main Ingredients (separated by commas): <input type ="text" className= "editRecipeInput"  onChange={handleNewIngredientsChange}/><br/>
-              Directions/Preparation Method (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewDirectionsChange} /><br/>
-              Or instead of directions, add a recipe link(URL): <input type ="text" className= "editRecipeInput" onChange={handleNewURLChange} /><br/>
-              Add a photo(image URL) of the dish (optional): <input type ="text" className= "editRecipeInput" onChange={handleNewPictureChange} /><br/>
+
+              <form className= "editRecipeForm"  onSubmit = {handleNewRecipeFormSubmit}>
+              Dish/Recipe Name: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.dish} onChange= {handleNewDishChange}/>
+              <button className = "editButton" onClick = { (event) => {handleEditDish(recipe)} }>Update</button>
+              <br/>
+              Main Ingredients: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.ingredients}  onChange={handleNewIngredientsChange}/>
+              <button className = "editButton" onClick = { (event) => {handleEditIngredients(recipe)} }>Update</button>
+              <br/>
+              Directions/Preparation: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.directions}  onChange={handleNewDirectionsChange}/>
+              <button className = "editButton" onClick = { (event) => {handleEditDirections(recipe)} }>Update</button>
+              <br/>
+              Recipe link (URL): <input type ="text" className= "editRecipeInput" defaultValue = {recipe.recipeURL}   onChange={handleNewURLChange} />
+              <button className = "editButton" onClick = { (event) => {handleEditURL(recipe)} }>Update</button>
+              <br/>
+              Photo(URL) of the Dish: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.picture}  onChange={handleNewPictureChange} />
+              <button className = "editButton" onClick = { (event) => {handleEditPicture(recipe)} }>Update</button>
+              <br/>
               </form>
-              <button className = "editButton" onClick = { (event) => { handleEdit(recipe) } }>Approve Changes to this Recipe's Information</button>
-              <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe Above from Directory</button>
+              <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe from Directory</button>
             </div>
           </li>
         })

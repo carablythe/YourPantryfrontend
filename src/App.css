@@ -88,22 +88,6 @@ h4  {
   background-color: #CDA678;
 }
 
-.editRecipeForm {
-  font-size: 2vw;
-  margin: 0vw 2vw 2vw 0vw;
-}
-
-.editRecipeInput {
-  width:40vw;
-  height:2.5vw;
-  font-size: 1.7vw;
-  margin: 0vw 1vw 1vw 0vw;
-  background-color: #FFFFFF;
-}
-
-input:focus {
-  outline: none;
-}
 
 ul {
  list-style: none;
@@ -113,25 +97,28 @@ li {
   background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin: 3vw 7vw 2vw 3vw;
-  padding: 2vw 7vw 1vw 9vw;
+  margin: 3vw 5vw 2vw 1vw;
+  padding: 2vw 6vw 1vw 9vw;
   border-radius: 2vw;
-  box-shadow: 1vw 1vw 2vw black
+  box-shadow: 1vw 1vw 2vw black;
 }
 
-.removeButton {
+.editRecipeForm {
   font-size: 2vw;
-  color: white;
-  background-color: red;
-  margin: 0vw 3vw 2vw 3vw;
-  cursor: wait;
+}
 
+.editRecipeInput {
+  width:32vw;
+  height:2.5vw;
+  font-size: 1.7vw;
+  margin: 0vw 0vw 2vw 0vw;
+  background-color: #FFFFFF;
 }
 
 .editButton {
-  font-size: 2vw;
+  font-size: 1.5vw;
   background-color: orange;
-  margin: 1vw 3vw 1vw 3vw;
+  margin: 1vw 0vw 1vw 1vw;
   cursor: context-menu;
 }
 
@@ -141,6 +128,14 @@ li {
   background-color: #aaa9ad;
   margin: 4vw 10vw 4vw 5vw;
   cursor: cell;
+}
+
+.removeButton {
+  font-size: 2vw;
+  color: white;
+  background-color: red;
+  cursor: wait;
+  margin: 1vw 0vw 3vw 5vw;
 }
 
 .dishName {
