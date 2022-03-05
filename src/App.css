@@ -12,6 +12,9 @@
   border: 0.3vw solid white;
 }
 
+.list {
+  text-align: center;
+}
 h1 {
   font-family: "Dancing Script", cursive;
   font-size: 10vw;
@@ -163,9 +166,6 @@ a {
 @keyframes block {
   0% {
     opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
   }
   100% {
     opacity: 1;
