@@ -12,6 +12,7 @@
   border: .3vw solid white;
 }
 
+
 h1 {
   font-family: "Dancing Script", cursive;
   font-size: 10vw;
@@ -60,6 +61,8 @@ h4  {
   text-align: center;
 }
 
+/* cutting board recipe add form below */
+
 .addRecipeForm {
   font-size: 2vw;
   margin: 3vw 3vw 8vw 3vw;
@@ -70,6 +73,8 @@ h4  {
   padding: 2vw 3vw 1vw 3vw;
   box-shadow: 2vw 2vw 2vw black;
   border-radius: 2vw;
+  animation-name: block;
+  animation-duration: 4s;
 }
 
 .inputRecipeName {
@@ -88,30 +93,60 @@ h4  {
   background-color: #CDA678;
 }
 
+.addRecipe {
+  font-size: 2.2vw;
+  color: black;
+  background-color: #aaa9ad;
+  margin: 4vw 10vw 4vw 5vw;
+  cursor: cell;
+}
 
 ul {
  list-style: none;
 }
 
-li {
+/* li and content below for recipes cards*/
+
+.recipeInfo {
   background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin: 3vw 5vw 2vw 1vw;
-  padding: 2vw 6vw 1vw 9vw;
+  margin: 3vw 5vw 3vw 0vw;
+  padding: 2vw 5vw 2vw 8vw;
   border-radius: 2vw;
   box-shadow: 1vw 1vw 2vw black;
+  text-align: center;
 }
+
+.X {
+  font-weight: 500;
+  border: 2px solid black;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.recipeCardButton {
+    background-color: white;
+    padding: 0vw 0vw;
+}
+
+.recipeImage {
+  max-width: 60%;
+  max-height: 40%;
+}
+
+/* edit and delete recipe form below */
 
 .editRecipeForm {
   font-size: 2vw;
 }
 
 .editRecipeInput {
-  width:32vw;
+  width:33vw;
   height:2.5vw;
   font-size: 1.7vw;
-  margin: 0vw 0vw 2vw 0vw;
+  margin: 1vw 0vw 2vw 0vw;
   background-color: #FFFFFF;
 }
 
@@ -122,20 +157,14 @@ li {
   cursor: context-menu;
 }
 
-.addRecipe {
-  font-size: 2.2vw;
-  color: black;
-  background-color: #aaa9ad;
-  margin: 4vw 10vw 4vw 5vw;
-  cursor: cell;
-}
 
 .removeButton {
   font-size: 2vw;
   color: white;
   background-color: red;
   cursor: wait;
-  margin: 1vw 0vw 3vw 5vw;
+  margin-bottom: 3vw;
+  margin-top: 2vw;
 }
 
 .dishName {
@@ -146,12 +175,22 @@ a {
   text-decoration: none;
 }
 
+
 @keyframes bigger {
   0% {
     opacity: 0;
     font-size: 2rem;
   }
 
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes block {
+  0% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }

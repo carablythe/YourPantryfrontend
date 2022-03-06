@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
+
 
 const App = () => {
 
@@ -13,6 +14,8 @@ const App = () => {
   const [newPicture, setNewPicture] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("")
+  const [show, setShow] = useState(false);
+  const [seeRecipes, setSeeRecipes] = useState (0);
 
   const getRecipes = () => {
   axios
@@ -45,6 +48,19 @@ const App = () => {
   const handleNewPictureChange = (event) => {
     setNewPicture(event.target.value)
   }
+
+  const handleShow = (index) => {
+    setShow(!show);
+    setSeeRecipes(index)
+  }
+
+  const gonnaShow = () => {
+   setShow(true);
+  };
+
+  const notGonnaShow = () => {
+   setShow(false);
+  };
 
 
   const handleNewRecipeFormSubmit = (event) => {
@@ -159,6 +175,7 @@ const App = () => {
                     })
                 }
 
+
   return (
    <div className="page">
     <div className="op">
@@ -168,65 +185,128 @@ const App = () => {
         <h2>No need to Shop!</h2>
         <h3>Use what's in your fridge and pantry!</h3>
         <br/>
-        <h4>Search by main ingredient: <input placeholder="Enter Query" className="searchBar" onChange={event => setQuery(event.target.value)} /></h4>
+        <h4>Search by main ingredient:
+          <input placeholder="Enter Query" className="searchBar"
+          onChange={event => setQuery(event.target.value)} />
+        </h4>
         <br/>
         <h2>Got a Recipe to Share?</h2>
-        <form className= "addRecipeForm" onSubmit = {handleNewRecipeFormSubmit}>
-        Dish/Recipe Name: <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange} value={newDish} /><br/>
-        Main Ingredients (separated by commas): <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange} value={newIngredients} /><br/>
-        Directions/Preparation Method (optional): <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange} value={newDirections} /><br/>
-        Or instead of directions, add a recipe link(URL): <input type ="text" className= "inputRecipe" onChange={handleNewURLChange} value={newURL} /><br/>
-        Add a photo(image URL) of the dish (optional): <input type ="text" className= "inputRecipe" onChange={handleNewPictureChange} value={newPicture} /><br/>
+        <form
+          className= "addRecipeForm"
+          onSubmit = {handleNewRecipeFormSubmit}>
+        Dish/Recipe Name:
+        <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange} value={newDish} />
+        <br/>
+        Main Ingredients (separated by commas):
+        <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange} value={newIngredients} />
+        <br/>
+        Directions/Preparation Method (optional):
+        <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange}
+        value={newDirections} />
+        <br/>
+        Or instead of directions, add a recipe link(URL):
+        <input type ="text" className= "inputRecipe" onChange={handleNewURLChange}
+        value={newURL} />
+        <br/>
+        Add a photo(image URL) of the dish (optional):
+        <input type ="text" className= "inputRecipe"
+        onChange={handleNewPictureChange}
+        value={newPicture} /><br/>
         <input type="submit" className ="addRecipe" value="Add Recipe to Collection"/>
         </form>
       </section>
       <section>
-      <h2>Browse Recipes Below:</h2>
-      <ul>
-      {recipes.filter((recipe) => {
-          if (recipe.ingredients.includes(query)) {
-          return recipe;
-          } else if (recipe.ingredients.toLowerCase().includes(query.toLowerCase())) {
-          return recipe;
-          }
-        }).map((recipe) =>{
-          return <li key={recipe._id} className = "recipeInfo">
-            <object class= "dishName"><h3>{recipe.dish}</h3></object>
-            <div id ="hidden">
-              <h5>Ingredients: {recipe.ingredients}</h5>
-              <h5><a href= {recipe.recipeURL} target="_blank" >Directions: (click for recipe if no directions appear) {recipe.directions}</a></h5>
-              <img src= {recipe.picture}/>
-              <h5><em>You can edit this recipe below: </em></h5>
+        <h2>Browse Recipes Below:</h2>
+        <ul>
+          {recipes.filter((recipe) => {
+            if (recipe.ingredients.includes(query)) {
+              return recipe;
+            } else if (
+              recipe.ingredients.toLowerCase().includes(query.toLowerCase())
+            ){
+              return recipe;
+            }
+          }).map((recipe, index) => {
+            return (
+              <div className="recipeInfo" >
+                 <li key={recipe._id} >
+                    <div className ="recipeCardButton" onClick={() => handleShow(index)}><h3>{recipe.dish}</h3></div>
 
-              <form className= "editRecipeForm"  onSubmit = {handleNewRecipeFormSubmit}>
-              Dish/Recipe Name: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.dish} onChange= {handleNewDishChange}/>
-              <button className = "editButton" onClick = { (event) => {handleEditDish(recipe)} }>Update</button>
-              <br/>
-              Main Ingredients: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.ingredients}  onChange={handleNewIngredientsChange}/>
-              <button className = "editButton" onClick = { (event) => {handleEditIngredients(recipe)} }>Update</button>
-              <br/>
-              Directions/Preparation: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.directions}  onChange={handleNewDirectionsChange}/>
-              <button className = "editButton" onClick = { (event) => {handleEditDirections(recipe)} }>Update</button>
-              <br/>
-              Recipe link (URL): <input type ="text" className= "editRecipeInput" defaultValue = {recipe.recipeURL}   onChange={handleNewURLChange} />
-              <button className = "editButton" onClick = { (event) => {handleEditURL(recipe)} }>Update</button>
-              <br/>
-              Photo(URL) of the Dish: <input type ="text" className= "editRecipeInput" defaultValue = {recipe.picture}  onChange={handleNewPictureChange} />
-              <button className = "editButton" onClick = { (event) => {handleEditPicture(recipe)} }>Update</button>
-              <br/>
-              </form>
-              <button class = "removeButton" onClick = { (event) => { handleDelete(recipe)} }>Remove Recipe from Directory</button>
-            </div>
-          </li>
-        })
-       }
-      </ul>
-     </section>
-    </main>
+                        {show && seeRecipes === index ? (
+                        <div className ="hidden">
+                        <div onClick={notGonnaShow} className="X">
+                               X
+                        </div>
+                          <h5>Ingredients: {recipe.ingredients}</h5>
+                          <h5><a href= {recipe.recipeURL} target="_blank">
+                            Directions: (click for recipe if no directions appear) {recipe.directions}</a>
+                          </h5>
+                          <img src= {recipe.picture} class="recipeImage"/>
+                          <h5>
+                            <em>You can edit this recipe below:</em>
+                          </h5>
+                          <form className= "editRecipeForm"
+                            onSubmit = {handleNewRecipeFormSubmit}>
+                          Dish/Recipe Name:
+                          <input type ="text" className="editRecipeInput"
+                            defaultValue = {recipe.dish}
+                            onChange= {handleNewDishChange}/>
+                          <button className = "editButton"
+                            onClick = { (event) => {handleEditDish(recipe)} }>
+                            Update
+                          </button>
+                          <br/>
+                          Main Ingredients:
+                          <input type ="text" className= "editRecipeInput"
+                              defaultValue = {recipe.ingredients}             onChange={handleNewIngredientsChange}/>
+                          <button className = "editButton"
+                            onClick = {(event)=> {handleEditIngredients(recipe)}}>
+                            Update
+                          </button>
+                          <br/>
+                          Directions/Preparation: <input type ="text"
+                            className= "editRecipeInput"
+                            defaultValue = {recipe.directions}  onChange={handleNewDirectionsChange}/>
+                          <button className = "editButton"
+                           onClick = {(event)=> {handleEditDirections(recipe)}}>
+                            Update
+                          </button>
+                          <br/>
+                          Recipe link (URL):
+                          <input type ="text" className= "editRecipeInput"
+                            defaultValue = {recipe.recipeURL}   onChange={handleNewURLChange} />
+                          <button className = "editButton"
+                            onClick = { (event) => {handleEditURL(recipe)} }>
+                            Update
+                          </button>
+                          <br/>
+                          Photo(URL) of the Dish:
+                          <input type ="text" className= "editRecipeInput"
+                            defaultValue = {recipe.picture}  onChange={handleNewPictureChange} />
+                          <button className = "editButton"
+                            onClick = { (event) => {handleEditPicture(recipe)} }>Update
+                          </button>
+                          <br/>
+                          </form>
+                          <button class = "removeButton"
+                            onClick = {(event) => {handleDelete(recipe)} }>
+                            Remove Recipe from Directory
+                          </button>
+                          </div>
+                      ): null}
+                  </li>
+                </div>
+              )})
+            }
+          </ul>
+        </section>
+      </main>
     </div>
-   </div>
-  );
+  </div>
+);
 }
+
+
 
 
 export default App;
