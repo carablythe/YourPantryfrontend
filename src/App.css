@@ -4,12 +4,10 @@
 }
 
 .op {
-  background-color: rgb(223, 220, 220);
-  opacity: 0.9;
+  background-color: rgb(223, 220, 220, 0.8);
   width: 70%;
   margin: auto;
   border-radius: 2vw;
-  border: .3vw solid white;
 }
 
 
