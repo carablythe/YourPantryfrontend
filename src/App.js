@@ -3,6 +3,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Switch} from 'react-router-dom';
+import Popup from "./components/Popup";
 
 
 const App = () => {
@@ -16,6 +17,9 @@ const App = () => {
   const [query, setQuery] = useState("")
   const [show, setShow] = useState(false);
   const [seeRecipes, setSeeRecipes] = useState (0);
+  const [buttonPopup, setButtonPopup] = useState(false);
+  const [setDelete, seeSetDelete] = useState(false)
+  const [seeDeleteButton, setSeeDeleteButton] = useState (0);
 
   const getRecipes = () => {
   axios
@@ -87,18 +91,6 @@ const App = () => {
       })
     })
   }
-
-  const handleDelete = (recipeData) => {
-    axios
-        .delete(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`
-        ).then(()=> {
-          axios
-            .get('https://yourpantry.herokuapp.com/yourpantry')
-            .then((response) => {
-              setRecipes(response.data);
-          })
-        })
-    }
 
       const handleEditDish = (recipeData) => {
         axios
@@ -174,6 +166,23 @@ const App = () => {
                       })
                     })
                 }
+
+  const handleSeeDelete = (index) => {
+            seeSetDelete(!setDelete);
+            setSeeDeleteButton(index)
+          }
+
+  const handleDelete = (recipeData) => {
+        axios
+            .delete(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`
+              ).then(()=> {
+                  axios
+                    .get('https://yourpantry.herokuapp.com/yourpantry')
+                    .then((response) => {
+                    setRecipes(response.data);
+                  })
+                })
+              }
 
 
   return (
@@ -288,11 +297,16 @@ const App = () => {
                           </button>
                           <br/>
                           </form>
-                          <button class = "removeButton"
-                            onClick = {(event) => {handleDelete(recipe)} }>
+                          <button class = "removeButton" onClick={() => handleSeeDelete(index)}
+                           >
                             Remove Recipe from Directory
                           </button>
-                          </div>
+                          {setDelete && seeDeleteButton === index ? (
+                          <button class = "removeButton" onClick = {(event) => {handleDelete(recipe)}}>
+                          <h2>Confirm Delete of this Recipe</h2>
+                          </button>
+                          ): null}
+                        </div>
                       ): null}
                   </li>
                 </div>
