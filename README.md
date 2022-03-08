@@ -23,10 +23,37 @@ Getting deployed on Heroku was a lot more complicated this time with both fronte
 
 UNSOLVED PROBLEMS:
 1. User authentication (registered, log in, log out, profile page, and permission to edit and delete ONLY the recipes they've made)
-2. multi-word search capability
+2. sorting list of recipes alphabetically
+3. multi-word search capability
 
 STRETCH/FUTURE GOALS:
-1. Getting an external API set up for queries
+1. Above Unsolved Problems + the below:
+2. Getting an external API set up for queries
 2. Adding likes and comment features
-3. Getting all of my (Cara's) recipes and photos up to share with people when they ask how I made this or that.
+3. CONTENT-WISE: Getting all of my (Cara's) recipes and photos up to share with people when they ask how I made this or that, in both English and Japanese
 -----
+
+
+
+// failed attempts below at alphabetical Order sorting:
+
+  // const alphabeticalOrder = () => {
+  //   axios
+  //     .get('https://yourpantry.herokuapp.com/yourpantry')
+  //     .then((response) => {
+  //       setRecipes(response.data.dish.sort(function(a,b)
+  //       {return a.localeCompare(b)}
+  //     ))
+  //   }
+  //  )
+  // }
+  //
+  // useEffect(() => {
+  //   allphabeticalOrder()
+  // // }, [])
+  //
+  // const alphabeticalOrder = () => {
+  //   axios
+  //     .get('https://yourpantry.herokuapp.com/yourpantry').then(response).sort(a,b) =>
+  //   return a.response.dish.localeCompare(b.response.dish)
+  // }

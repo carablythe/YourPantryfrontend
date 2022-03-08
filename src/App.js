@@ -3,8 +3,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Switch} from 'react-router-dom';
-import Popup from "./components/Popup";
-
+import CuttingBoard from './components/CuttingBoard.js'
 
 const App = () => {
 
@@ -17,21 +16,24 @@ const App = () => {
   const [query, setQuery] = useState("")
   const [show, setShow] = useState(false);
   const [seeRecipes, setSeeRecipes] = useState (0);
-  const [buttonPopup, setButtonPopup] = useState(false);
   const [setDelete, seeSetDelete] = useState(false)
   const [seeDeleteButton, setSeeDeleteButton] = useState (0);
+  // const [sortAlpha, setSortAlpha] = useState(null);
+
 
   const getRecipes = () => {
   axios
     .get('https://yourpantry.herokuapp.com/yourpantry')
     .then((response) => {
-      setRecipes(response.data);
+      setRecipes(response.data)
   })
   }
+
 
   useEffect(() => {
     getRecipes()
   }, [])
+
 
   const handleNewDishChange = (event) => {
     setNewDish(event.target.value)
@@ -65,7 +67,6 @@ const App = () => {
   const notGonnaShow = () => {
    setShow(false);
   };
-
 
   const handleNewRecipeFormSubmit = (event) => {
     event.preventDefault();
@@ -200,28 +201,24 @@ const App = () => {
         </h4>
         <br/>
         <h2>Got a Recipe to Share?</h2>
-        <form
-          className= "addRecipeForm"
-          onSubmit = {handleNewRecipeFormSubmit}>
-        Dish/Recipe Name:
-        <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange} value={newDish} />
-        <br/>
-        Main Ingredients (separated by commas):
-        <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange} value={newIngredients} />
-        <br/>
-        Directions/Preparation Method (optional):
-        <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange}
-        value={newDirections} />
-        <br/>
-        Or instead of directions, add a recipe link(URL):
-        <input type ="text" className= "inputRecipe" onChange={handleNewURLChange}
-        value={newURL} />
-        <br/>
-        Add a photo(image URL) of the dish (optional):
-        <input type ="text" className= "inputRecipe"
-        onChange={handleNewPictureChange}
-        value={newPicture} /><br/>
-        <input type="submit" className ="addRecipe" value="Add Recipe to Collection"/>
+        <form className= "addRecipeForm"
+          onSubmit = {handleNewRecipeFormSubmit} >
+          Dish/Recipe Name:
+          <input type ="text" className= "inputRecipeName" onChange={handleNewDishChange} value={newDish} />
+          <br/>
+          Main Ingredients (separated by commas):
+          <input type ="text" className= "inputRecipe" onChange={handleNewIngredientsChange} value={newIngredients} />
+          <br/>
+          Directions/Preparation Method (optional):
+          <input type ="text" className= "inputRecipe" onChange={handleNewDirectionsChange} value={newDirections} />
+          <br/>
+          Or instead of directions, add a recipe link(URL):
+          <input type ="text" className= "inputRecipe" onChange={handleNewURLChange}
+          value={newURL} />
+          <br/>
+          Add a photo(image URL) of the dish (optional):
+          <input type ="text" className= "inputRecipe"  onChange={handleNewPictureChange} value={newPicture} /><br/>
+          <input type="submit" className ="addRecipe" value="Add Recipe to Collection"/>
         </form>
       </section>
       <section>
@@ -235,7 +232,8 @@ const App = () => {
             ){
               return recipe;
             }
-          }).map((recipe, index) => {
+          })
+          .map((recipe, index) => {
             return (
               <div className="recipeInfo" >
                  <li key={recipe._id} >
@@ -302,7 +300,7 @@ const App = () => {
                             Remove Recipe from Directory
                           </button>
                           {setDelete && seeDeleteButton === index ? (
-                          <button class = "removeButton" onClick = {(event) => {handleDelete(recipe)}}>
+                          <button class = "removeButton" onClick = {(event) => handleDelete(recipe)}>
                           <h2>Confirm Delete of this Recipe</h2>
                           </button>
                           ): null}
