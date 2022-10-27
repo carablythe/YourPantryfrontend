@@ -6,8 +6,8 @@ SEI Project 3, March 2022
 APP URL: https://yourpantryrecipes.herokuapp.com/
 backend data: https://yourpantry.herokuapp.com/yourpantry
 
-GitHub frontend:https://github.com/carablythe/Project3frontend
-backend: https://github.com/carablythe/Project3backend
+GitHub frontend:https://github.com/carablythe/YourPantryfrontend
+backend: https://github.com/carablythe/YourPantrybackend
 
 OVERALL APPROACH TAKEN:
 An app for people to browse recipes by main ingredients, add their own recipes to the collection (edit, delete, etc.)

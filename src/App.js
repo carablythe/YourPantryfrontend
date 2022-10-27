@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Route, Switch} from 'react-router-dom';
 
 const App = () => {
 
@@ -59,10 +57,6 @@ const App = () => {
     setShow(!show);
     setSeeRecipes(index)
   }
-
-  const gonnaShow = () => {
-   setShow(true);
-  };
 
   const notGonnaShow = () => {
    setShow(false);
@@ -245,10 +239,10 @@ const App = () => {
                                X
                         </div>
                           <h5>Ingredients: {recipe.ingredients}</h5>
-                          <h5><a href= {recipe.recipeURL} target="_blank">
+                          <h5><a href= {recipe.recipeURL} target="_blank" rel="noreferrer">
                             Directions: (click for recipe if no directions appear) {recipe.directions}</a>
                           </h5>
-                          <img src= {recipe.picture} class="recipeImage"/>
+                          <img src= {recipe.picture} class="recipeImage" alt={recipe.dish}/>
                           <h5>
                             <em>You can edit this recipe below:</em>
                           </h5>
