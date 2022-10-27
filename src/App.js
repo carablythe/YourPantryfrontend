@@ -3,7 +3,6 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Switch} from 'react-router-dom';
-import CuttingBoard from './components/CuttingBoard.js'
 
 const App = () => {
 
@@ -18,6 +17,7 @@ const App = () => {
   const [seeRecipes, setSeeRecipes] = useState (0);
   const [setDelete, seeSetDelete] = useState(false)
   const [seeDeleteButton, setSeeDeleteButton] = useState (0);
+
   // const [sortAlpha, setSortAlpha] = useState(null);
 
 
@@ -265,7 +265,7 @@ const App = () => {
                           <br/>
                           Main Ingredients:
                           <input type ="text" className= "editRecipeInput"
-                              defaultValue = {recipe.ingredients}             onChange={handleNewIngredientsChange}/>
+                              defaultValue = {recipe.ingredients} onChange={handleNewIngredientsChange}/>
                           <button className = "editButton"
                             onClick = {(event)=> {handleEditIngredients(recipe)}}>
                             Update
