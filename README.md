@@ -31,29 +31,3 @@ STRETCH/FUTURE GOALS:
 2. Getting an external API set up for queries
 2. Adding likes and comment features
 3. CONTENT-WISE: Getting all of my (Cara's) recipes and photos up to share with people when they ask how I made this or that, in both English and Japanese
------
-
-
-
-// failed attempts below at alphabetical Order sorting:
-
-  // const alphabeticalOrder = () => {
-  //   axios
-  //     .get('https://yourpantry.herokuapp.com/yourpantry')
-  //     .then((response) => {
-  //       setRecipes(response.data.dish.sort(function(a,b)
-  //       {return a.localeCompare(b)}
-  //     ))
-  //   }
-  //  )
-  // }
-  //
-  // useEffect(() => {
-  //   allphabeticalOrder()
-  // // }, [])
-  //
-  // const alphabeticalOrder = () => {
-  //   axios
-  //     .get('https://yourpantry.herokuapp.com/yourpantry').then(response).sort(a,b) =>
-  //   return a.response.dish.localeCompare(b.response.dish)
-  // }
