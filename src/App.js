@@ -22,7 +22,7 @@ const App = () => {
 
   const getRecipes = () => {
   axios
-    .get('https://yourpantry.herokuapp.com/yourpantry')
+    .get('https://yourpantryrecipes.onrender.com/yourpantry')
     .then((response) => {
       setRecipes(response.data)
   })
@@ -66,7 +66,7 @@ const App = () => {
   const handleNewRecipeFormSubmit = (event) => {
     event.preventDefault();
     axios.post(
-      'https://yourpantry.herokuapp.com/yourpantry',
+      'https://yourpantryrecipes.onrender.com/yourpantry',
       {
         dish: newDish,
         ingredients: newIngredients,
@@ -76,7 +76,7 @@ const App = () => {
       }
     ).then(()=> {
       axios
-        .get('https://yourpantry.herokuapp.com/yourpantry')
+        .get('https://yourpantryrecipes.onrender.com/yourpantry')
         .then((response) => {
           setRecipes(response.data);
           setNewDish("");
@@ -90,13 +90,13 @@ const App = () => {
 
       const handleEditDish = (recipeData) => {
         axios
-            .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+            .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
               {
                 dish: newDish
               }
             ).then(()=> {
               axios
-                .get('https://yourpantry.herokuapp.com/yourpantry')
+                .get('https://yourpantryrecipes.onrender.com/yourpantry')
                 .then((response) => {
                   setRecipes(response.data);
               })
@@ -105,13 +105,13 @@ const App = () => {
 
         const handleEditIngredients = (recipeData) => {
           axios
-              .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+              .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                 {
                   ingredients: newIngredients
                 }
               ).then(()=> {
                 axios
-                  .get('https://yourpantry.herokuapp.com/yourpantry')
+                  .get('https://yourpantryrecipes.onrender.com/yourpantry')
                   .then((response) => {
                     setRecipes(response.data);
                 })
@@ -120,13 +120,13 @@ const App = () => {
 
           const handleEditDirections = (recipeData) => {
             axios
-                .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                   {
                     directions: newDirections
                   }
                 ).then(()=> {
                   axios
-                    .get('https://yourpantry.herokuapp.com/yourpantry')
+                    .get('https://yourpantryrecipes.onrender.com/yourpantry')
                     .then((response) => {
                       setRecipes(response.data);
                   })
@@ -135,13 +135,13 @@ const App = () => {
 
             const handleEditURL = (recipeData) => {
               axios
-                  .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                  .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                     {
                       recipeURL: newURL
                     }
                   ).then(()=> {
                     axios
-                      .get('https://yourpantry.herokuapp.com/yourpantry')
+                      .get('https://yourpantryrecipes.onrender.com/yourpantry')
                       .then((response) => {
                         setRecipes(response.data);
                     })
@@ -150,13 +150,13 @@ const App = () => {
 
               const handleEditPicture = (recipeData) => {
                 axios
-                    .put(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`,
+                    .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                       {
                         picture: newPicture
                       }
                     ).then(()=> {
                       axios
-                        .get('https://yourpantry.herokuapp.com/yourpantry')
+                        .get('https://yourpantryrecipes.onrender.com/yourpantry')
                         .then((response) => {
                           setRecipes(response.data);
                       })
@@ -170,10 +170,10 @@ const App = () => {
 
   const handleDelete = (recipeData) => {
         axios
-            .delete(`https://yourpantry.herokuapp.com/yourpantry/${recipeData._id}`
+            .delete(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`
               ).then(()=> {
                   axios
-                    .get('https://yourpantry.herokuapp.com/yourpantry')
+                    .get('https://yourpantryrecipes.onrender.com/yourpantry')
                     .then((response) => {
                     setRecipes(response.data);
                   })
@@ -240,7 +240,7 @@ const App = () => {
                                X
                         </div>
                           <h5>Ingredients: {recipe.ingredients}</h5>
-                          <h5><a href= {recipe.recipeURL} target="_blank" rel="noreferrer">
+                          <h5><a href= {recipe.recipeURL} target="_blank" rel="noopener noreferrer">
                             Directions: (click for recipe if no directions appear) {recipe.directions}</a>
                           </h5>
                           <img src= {recipe.picture} class="recipeImage" alt={recipe.dish}/>

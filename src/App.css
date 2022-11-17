@@ -1,5 +1,6 @@
 .page {
-  background-image: url(https://static.themarthablog.com/2017/03/DSC_5680.jpg);
+  background-image: url("/public/pantrybackground.jpg");
+  background-size: cover;
   background-repeat: repeat;
 }
 
@@ -64,10 +65,11 @@ h4  {
 
 .addRecipeForm {
   font-size: 2vw;
+  font-weight: bold;
   margin: 3vw 3vw 8vw 3vw;
-  background-image: url("https://media.istockphoto.com/photos/wooden-cutting-board-with-kitchen-knife-picture-id187946246?k=20&m=187946246&s=612x612&w=0&h=Lx8PFFLKVwNPzVQAV0MBTcdHjA99CEA3YYpmZy34jU4=");
-  background-size: 120% 125%;
-  background-position: center;
+  background-image: url("/public/cuttingboard.png");
+  background-size: 110% 101%;
+  background-position-y: top;
   background-repeat: no-repeat;
   padding: 2vw 3vw 1vw 3vw;
   box-shadow: 2vw 2vw 2vw black;
@@ -93,11 +95,11 @@ h4  {
 }
 
 .addRecipe {
-  font-size: 2.2vw;
+  font-size: 2.1vw;
   color: black;
-  background-color: #aaa9ad;
-  margin: 4vw 10vw 4vw 5vw;
-  cursor: cell;
+  background-color: #c3c1c8;
+  margin: 2vw 10vw 5vw 7vw;
+  border: none;
 }
 
 ul {
@@ -107,7 +109,7 @@ ul {
 /* li and content below for recipes cards*/
 
 .recipeInfo {
-  background-image: url("https://media.istockphoto.com/photos/notebook-paper-picture-id692814410?b=1&k=20&m=692814410&s=612x612&w=0&h=LDyBmFPAKH8cHu1CmnhMcj41e7hTn7FQjuYcBL4ZyO8=");
+  background-image: url("/public/notebook_paper.jpeg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   margin: 3vw 5vw 3vw 0vw;

@@ -1,10 +1,10 @@
 # "Your Pantry" Full-stack Application by Roc Taylor and Cara Phillips
 
-SEI Project 3, March 2022
+Initially SEI Project 3, March 2022
+(with many updates to the backend and a few CSS changes on the frontend in November 2022)
 
-
-APP URL: https://yourpantryrecipes.herokuapp.com/
-backend data: https://yourpantry.herokuapp.com/yourpantry
+APP URL: https://yourpantry.onrender.com
+backend data: https://yourpantryrecipes.onrender.com
 
 GitHub frontend:https://github.com/carablythe/YourPantryfrontend
 backend: https://github.com/carablythe/YourPantrybackend
