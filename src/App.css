@@ -1,6 +1,6 @@
 .page {
   background-image: url("/public/pantrybackground.jpg");
-  background-size: cover;
+  background-size: 100%;
   background-repeat: repeat;
 }
 
