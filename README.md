@@ -23,7 +23,8 @@ Getting deployed on Heroku was a lot more complicated this time with both fronte
 
 UNSOLVED PROBLEMS:
 1. User authentication (registered, log in, log out, profile page, and permission to edit and delete ONLY the recipes they've made)
-2. sorting list of recipes alphabetically
+2. sorting list of recipes alphabetically (THIS WAS SOLVED November 2022 by putting .sort((a, b) => a.dish.localeCompare(b.dish)).map((recipe, index) 
+before the .map of recipe data and after the filter for the query in the app.js file)
 3. multi-word search capability
 
 STRETCH/FUTURE GOALS:
@@ -31,3 +32,5 @@ STRETCH/FUTURE GOALS:
 2. Getting an external API set up for queries
 2. Adding likes and comment features
 3. CONTENT-WISE: Getting all of my (Cara's) recipes and photos up to share with people when they ask how I made this or that, in both English and Japanese
+
+NOTE: This map was also moved from Heroku to Render in November 2022, on both frontend and backend.

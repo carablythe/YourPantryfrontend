@@ -228,7 +228,7 @@ const App = () => {
               return recipe;
             }
           })
-          .map((recipe, index) => {
+          .sort((a, b) => a.dish.localeCompare(b.dish)).map((recipe, index) => {
             return (
               <div className="recipeInfo" >
                  <li key={recipe._id} >
