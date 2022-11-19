@@ -34,3 +34,5 @@ STRETCH/FUTURE GOALS:
 3. CONTENT-WISE: Getting all of my (Cara's) recipes and photos up to share with people when they ask how I made this or that, in both English and Japanese
 
 NOTE: This map was also moved from Heroku to Render in November 2022, on both frontend and backend.
+
+PHOTO CREDITS from https://unsplash.com/:  Thanks to Andre Taissin for the knife image, Servey Kotenev for the cutting board image, and Annie Spratt for the pantry background image.
