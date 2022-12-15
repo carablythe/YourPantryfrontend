@@ -88,7 +88,7 @@ const App = () => {
     })
   }
 
-      const handleEditDish = (recipeData) => {
+  const handleEditDish = (recipeData) => {
         axios
             .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
               {
@@ -103,7 +103,7 @@ const App = () => {
             })
         }
 
-        const handleEditIngredients = (recipeData) => {
+  const handleEditIngredients = (recipeData) => {
           axios
               .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                 {
@@ -116,9 +116,9 @@ const App = () => {
                     setRecipes(response.data);
                 })
               })
-          }
+        }
 
-          const handleEditDirections = (recipeData) => {
+  const handleEditDirections = (recipeData) => {
             axios
                 .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                   {
@@ -131,9 +131,9 @@ const App = () => {
                       setRecipes(response.data);
                   })
                 })
-            }
+          }
 
-            const handleEditURL = (recipeData) => {
+  const handleEditURL = (recipeData) => {
               axios
                   .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                     {
@@ -146,9 +146,9 @@ const App = () => {
                         setRecipes(response.data);
                     })
                   })
-              }
+            }
 
-              const handleEditPicture = (recipeData) => {
+  const handleEditPicture = (recipeData) => {
                 axios
                     .put(`https://yourpantryrecipes.onrender.com/yourpantry/${recipeData._id}`,
                       {
@@ -218,6 +218,7 @@ const App = () => {
       </section>
       <section>
         <h2>Browse Recipes Below:</h2>
+        <h4><i>(It may take a few moments for the recipes to load)</i></h4>
         <ul>
           {recipes.filter((recipe) => {
             if (recipe.ingredients.includes(query)) {
